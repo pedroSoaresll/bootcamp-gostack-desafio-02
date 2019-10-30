@@ -1,0 +1,22 @@
+{
+  "name": "bootcamp-gostack-desafio-02",
+  "version": "1.0.0",
+  "main": "index.js",
+  "maintainers": [
+    "Pedro Oliveira <pedrodepaivasoaresll@gmail.com>"
+  ],
+  "repository": "git@github.com:pedroSoaresll/bootcamp-gostack-desafio-02.git",
+  "author": "Pedro Oliveira <pedrodepaivasoaresll@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^5.21.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "nodemon": "^1.19.4",
+    "sucrase": "^3.10.1"
+  }
+}
