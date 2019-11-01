@@ -1,10 +1,13 @@
 import Sequelize from 'sequelize';
 
 // import models
+import User from '../app/models/User';
+
 // import database config
+import databaseConfig from '../config/database';
 
 // load models
-const models = [];
+const models = [User];
 
 class Database {
   constructor() {
@@ -12,7 +15,7 @@ class Database {
   }
 
   init() {
-    this.connection = new Sequelize(/* database config */);
+    this.connection = new Sequelize(databaseConfig);
     models.map((model) => model.init(this.connection));
   }
 }
