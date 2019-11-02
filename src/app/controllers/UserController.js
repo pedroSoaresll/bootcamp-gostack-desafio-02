@@ -11,6 +11,11 @@ class UserController {
       createdAt,
     });
   }
+
+  async index(_, res) {
+    const users = await User.findAll();
+    return res.json(users);
+  }
 }
 
 export default new UserController();

@@ -1,2 +1,3 @@
-export * from './sessions/createSessionCommand';
-export * from './users/createUserCommand';
+export * from './sessions';
+export * from './users';
+export * from './students';

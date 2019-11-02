@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 
+import { JWT_SECRET } from '../../config/authentication';
 import User from '../models/User';
 
 class SessionController {
@@ -28,7 +29,7 @@ class SessionController {
       {
         sub: user.id,
       },
-      'iron_man'
+      JWT_SECRET
     );
 
     return res.json({

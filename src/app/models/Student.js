@@ -7,14 +7,17 @@ class Student extends Model {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
         age: Sequelize.STRING,
-        weight: Sequelize.FLOAT(3, 2),
-        height: Sequelize.FLOAT(1, 2),
+        weight: Sequelize.FLOAT,
+        height: Sequelize.FLOAT,
       },
-      sequelize
+      {
+        sequelize,
+        timestamps: true,
+      }
     );
 
     return this;
   }
 }
 
-export default new Student();
+export default Student;
