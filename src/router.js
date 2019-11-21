@@ -22,6 +22,8 @@ import {
   createStudentCommand,
   createUserCommand,
   updateStudentCommand,
+  createPlans,
+  updatePlans,
 } from './app/commands';
 // end commands
 
@@ -75,6 +77,7 @@ routes.post(
   isAuth,
   extractToken,
   isValidCredentials,
+  createPlans,
   PlanController.store
 );
 routes.get(
@@ -89,6 +92,7 @@ routes.put(
   isAuth,
   extractToken,
   isValidCredentials,
+  updatePlans,
   PlanController.update
 );
 routes.delete(
