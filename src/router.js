@@ -13,6 +13,7 @@ import { studentExist } from './app/middleware/student';
 import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
 import StudentController from './app/controllers/StudentController';
+import PlanController from './app/controllers/PlanController';
 // end controllers
 
 // commands
@@ -67,5 +68,36 @@ routes.get(
   StudentController.index
 );
 // end students
+
+// start plans
+routes.post(
+  '/plans',
+  isAuth,
+  extractToken,
+  isValidCredentials,
+  PlanController.store
+);
+routes.get(
+  '/plans',
+  isAuth,
+  extractToken,
+  isValidCredentials,
+  PlanController.show
+);
+routes.put(
+  '/plans/:id',
+  isAuth,
+  extractToken,
+  isValidCredentials,
+  PlanController.update
+);
+routes.delete(
+  '/plans/:id',
+  isAuth,
+  extractToken,
+  isValidCredentials,
+  PlanController.destroy
+);
+// end plans
 
 export default routes;
