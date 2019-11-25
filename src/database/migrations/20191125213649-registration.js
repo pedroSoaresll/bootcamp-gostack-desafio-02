@@ -10,10 +10,12 @@ module.exports = {
       student_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: 'students', key: 'id' },
       },
       plan_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: 'plans', key: 'id' },
       },
       start_date: {
         type: Sequelize.DATE,
