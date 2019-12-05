@@ -27,6 +27,7 @@ import {
   createRegistration,
 } from './app/commands';
 import RegistrationController from './app/controllers/RegistrationController';
+import CheckinsController from './app/controllers/CheckinsController';
 // end commands
 
 const routes = new Router();
@@ -71,6 +72,8 @@ routes.get(
   isValidCredentials,
   StudentController.index
 );
+routes.post('/students/:id/checkins', CheckinsController.store);
+routes.get('/students/:studentId/checkins', CheckinsController.show);
 // end students
 
 // start plans
@@ -114,6 +117,20 @@ routes.post(
   isValidCredentials,
   createRegistration,
   RegistrationController.store
+);
+routes.get(
+  '/registrations',
+  isAuth,
+  extractToken,
+  isValidCredentials,
+  RegistrationController.index
+);
+routes.delete(
+  '/registrations/:id',
+  isAuth,
+  extractToken,
+  isValidCredentials,
+  RegistrationController.delete
 );
 // end registration
 

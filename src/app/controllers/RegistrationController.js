@@ -9,15 +9,11 @@ class RegistrationController {
     const { planId, studentId } = req.params;
     const { startDate } = req.body;
 
-    console.log(planId, studentId, startDate);
-
     const plan = await Plan.findOne({
       where: {
         id: planId,
       },
     });
-
-    console.log(plan);
 
     if (!plan) {
       return res.status(400).json({
@@ -30,8 +26,6 @@ class RegistrationController {
         id: studentId,
       },
     });
-
-    console.log(student);
 
     if (!student) {
       return res.status(400).json({
@@ -66,6 +60,28 @@ class RegistrationController {
 
     return res.json({
       message: 'Success, a new student created',
+    });
+  }
+
+  async index(_, res) {
+    const registration = await Registration.findAll();
+    return res.json(registration);
+  }
+
+  async delete(req, res) {
+    const { id } = req.params;
+    const registration = await Registration.destroy({
+      where: {
+        id,
+      },
+    });
+
+    const message = registration
+      ? 'Deletado com sucesso'
+      : 'Nenhum registro deletado';
+
+    return res.json({
+      message,
     });
   }
 }
