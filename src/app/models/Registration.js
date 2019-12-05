@@ -16,6 +16,8 @@ class Registration extends Model {
         timestamps: true,
       }
     );
+
+    return this;
   }
 
   static associate(models) {
@@ -23,3 +25,5 @@ class Registration extends Model {
     this.belongsTo(models.Plan, { foreignKey: 'plan_id', as: 'plan' });
   }
 }
+
+export default Registration;

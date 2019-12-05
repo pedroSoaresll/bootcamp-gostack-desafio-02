@@ -1,7 +1,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
     queryInterface.bulkInsert(
-      'registration',
+      'registrations',
       [
         {
           id: 1,
@@ -16,5 +16,5 @@ module.exports = {
       ],
       {}
     ),
-  down: queryInterface => queryInterface.bulkDelete('registration', null, {}),
+  down: queryInterface => queryInterface.bulkDelete('registrations', null, {}),
 };

@@ -22,6 +22,8 @@ class Plan extends Model {
         timestamps: true,
       }
     );
+
+    return this;
   }
 }
 

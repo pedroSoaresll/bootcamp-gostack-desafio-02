@@ -24,7 +24,9 @@ import {
   updateStudentCommand,
   createPlans,
   updatePlans,
+  createRegistration,
 } from './app/commands';
+import RegistrationController from './app/controllers/RegistrationController';
 // end commands
 
 const routes = new Router();
@@ -103,5 +105,16 @@ routes.delete(
   PlanController.destroy
 );
 // end plans
+
+// start registration
+routes.post(
+  '/registrations/:studentId/plan/:planId',
+  isAuth,
+  extractToken,
+  isValidCredentials,
+  createRegistration,
+  RegistrationController.store
+);
+// end registration
 
 export default routes;
