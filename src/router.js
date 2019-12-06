@@ -25,9 +25,13 @@ import {
   createPlans,
   updatePlans,
   createRegistration,
+  createHelpOrder,
+  createAnswerToOrderRequest,
 } from './app/commands';
 import RegistrationController from './app/controllers/RegistrationController';
 import CheckinsController from './app/controllers/CheckinsController';
+import OrderRequestController from './app/controllers/OrderRequestController';
+import HelpOrderController from './app/controllers/HelpOrderController';
 // end commands
 
 const routes = new Router();
@@ -74,6 +78,12 @@ routes.get(
 );
 routes.post('/students/:id/checkins', CheckinsController.store);
 routes.get('/students/:studentId/checkins', CheckinsController.show);
+routes.post(
+  '/students/:id/help-orders',
+  createHelpOrder,
+  HelpOrderController.store
+);
+routes.get('/students/:id/help-orders', HelpOrderController.show);
 // end students
 
 // start plans
@@ -133,5 +143,23 @@ routes.delete(
   RegistrationController.delete
 );
 // end registration
+
+// start order requests
+routes.get(
+  '/orderrequests',
+  isAuth,
+  extractToken,
+  isValidCredentials,
+  OrderRequestController.index
+);
+routes.post(
+  '/orderrequests/:id',
+  isAuth,
+  extractToken,
+  isValidCredentials,
+  createAnswerToOrderRequest,
+  OrderRequestController.store
+);
+// end order requests
 
 export default routes;
